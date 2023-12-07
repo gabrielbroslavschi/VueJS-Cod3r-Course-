@@ -1,0 +1,39 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<meta charset="UTF-8" />
+
+<div id="app">
+  <ul>
+    <li v-for="(cor, index) in cores">{{ cor }} - {{ index + 1 }}</li>
+  </ul>
+
+  <hr />
+
+  <template v-for="(cor, index) in cores">
+    <h1>{{ cor }}</h1>
+    <p>{{ index + 1 }}</p>
+  </template>
+</div>
+
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      cores: ["vermelho", "verde", "amarelo", "azul"],
+      pessoas: [
+        { nome: "Gabriel", idade: 22, peso: 90 },
+        { nome: "José", idade: 30, peso: 78 },
+      ],
+    },
+  });
+</script>
+
+<style>
+  ul {
+    list-style: none;
+  }
+
+  h1, p {
+    display: inline;
+  }
+</style>
