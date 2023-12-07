@@ -14,13 +14,20 @@
     <p>{{ index + 1 }}</p>
   </template>
 
-  <hr>
+  <hr />
 
   <ul>
-    <li v-for="pessoa in pessoas"> {{ pessoa.nome }}
-      <div v-for="(valor, chave, i) in pessoa">{{ i + 1 }} -> {{ chave }} -> {{ valor }}</div>
+    <li v-for="pessoa in pessoas">
+      {{ pessoa.nome }}
+      <div v-for="(valor, chave, i) in pessoa">
+        {{ i + 1 }} -> {{ chave }} -> {{ valor }}
+      </div>
     </li>
   </ul>
+
+  <hr />
+  
+  <div v-for="n in 10">{{ n }}</div>
 </div>
 
 <script>
@@ -41,7 +48,8 @@
     list-style: none;
   }
 
-  h1, p {
+  h1,
+  p {
     display: inline;
   }
 </style>
