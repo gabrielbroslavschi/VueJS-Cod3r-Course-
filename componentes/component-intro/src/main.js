@@ -3,10 +3,10 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
-import contador from './contador'
+import contadores from './contadores'
 
 Vue.config.productionTip = false
-Vue.component('app-contador', contador)
+Vue.component('app-contadores', contadores)
 
 new Vue({
   router,
