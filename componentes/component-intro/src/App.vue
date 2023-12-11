@@ -3,6 +3,8 @@
 <template>
   <div>
     <app-contadores></app-contadores>
+
+    <button>?</button>
   </div>
 </template>
 
@@ -16,4 +18,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+div{
+  border: 1px solid red;
+}
+
+
+</style>
