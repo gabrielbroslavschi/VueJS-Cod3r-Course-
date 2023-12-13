@@ -6,7 +6,7 @@
         </span>
         <Citacao >
             <h1>{{ citacoes[indice].autor }}</h1>
-            <p>{{ citacoes[indice].texto }}</p>
+            <p> {{ citacoes[indice].texto }}</p>
             <h6>{{ citacoes[indice].fonte }}</h6>
         </Citacao>
     </div>
@@ -50,5 +50,10 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    
+    h1{
+        color: greenyellow;
     }
 </style>
