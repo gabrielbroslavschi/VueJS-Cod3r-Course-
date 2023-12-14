@@ -1,6 +1,7 @@
 <template>
 	<div id="app">
 		<h1>Tarefas</h1>
+		<newTaks @taskAdded="addTask"></newTaks>
 		<taskGridVue :tasks='tasks'/>
 	</div>
 </template>
@@ -9,10 +10,11 @@
 
 
 import taskGridVue from "./components/taskGrid.vue"
+import newTaks from "./components/newTask.vue"
 
 
 export default {
-	components: {taskGridVue},
+	components: {taskGridVue, newTaks},
 	data(){
 		return{
 			tasks:[
@@ -20,6 +22,19 @@ export default {
 				{name: "compras", pending: true},
 				
 			]
+		}
+	},
+	methods:{
+		addTask(task){
+			const sameName = t => t.name === task.name
+			const reallyNew = this.tasks.filter(sameName).length == 0
+
+			if(reallyNew){
+				this.tasks.push({
+					name: task.name,
+					pending: true
+				})
+			}
 		}
 	}
 
