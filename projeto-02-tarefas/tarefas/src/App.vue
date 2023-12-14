@@ -20,10 +20,16 @@ export default {
 	data(){
 		return{
 			tasks:[
-				{name: 'lavar a louça', pending: false},
-				{name: "compras", pending: true},
 				
 			]
+		}
+	},
+	watch:{
+		tasks:{
+			deep: true,
+			handler(){
+				localStorage.setItem('tasks', JSON.stringify(this.tasks))
+			}
 		}
 	},
 	computed:{
@@ -54,6 +60,10 @@ export default {
 		toggleTaskState(i){
 			this.tasks[i].pending = !this.tasks[i].pending
 		}
+	},
+	created(){
+		const json = localStorage.getItem('tasks')
+		this.tasks = JSON.parse(json) || []
 	}
 
 }
