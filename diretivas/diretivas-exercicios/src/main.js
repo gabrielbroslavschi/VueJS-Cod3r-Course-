@@ -1,29 +1,27 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from "vue";
+import App from "./App.vue";
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-Vue.directive('destaque', {
-	// eslint-disable-next-line no-unused-vars
-	bind(el, binding, vnode){
-		// el.style.backgroundColor = 'lightgreen'
+Vue.directive("destaque", {
+  // eslint-disable-next-line no-unused-vars
+  bind(el, binding, vnode) {
+    // el.style.backgroundColor = 'lightgreen'
 
-		let atraso = 0
+    let atraso = 0;
 
-		if(binding.modifiers['atrasar']) atraso = 3000
+    if (binding.modifiers["atrasar"]) atraso = 3000;
 
-		setTimeout(() => {
-			if(binding.arg === 'fundo'){
-				el.style.backgroundColor = binding.value
-			}else{
-				el.style.color = binding.value
-			}
-		}, atraso)
-
-		
-	}
-})
+    setTimeout(() => {
+      if (binding.arg === "fundo") {
+        el.style.backgroundColor = binding.value;
+      } else {
+        el.style.color = binding.value;
+      }
+    }, atraso);
+  },
+});
 
 new Vue({
-	render: h => h(App),
-}).$mount('#app')
+  render: (h) => h(App),
+}).$mount("#app");
