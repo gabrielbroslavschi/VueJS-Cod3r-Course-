@@ -32,6 +32,7 @@ export default {
       alert("passou");
     },
     mouseLeave() {
+      // eslint-disable-next-line no-console
       console.log("Saiu!");
     },
   },
