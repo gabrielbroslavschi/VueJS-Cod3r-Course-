@@ -6,7 +6,6 @@
 
 		<p>{{ cpf | cpfFilter | inverter }}</p>
 		<p>{{ usuarioLogado }}</p>
-
 		<input type="text" :value='cpf | cpfFilter | inverter' >
 
 		<hr>
@@ -19,7 +18,6 @@
         <ul>
             <li v-for='fruta in frutas' :key='fruta'>{{ fruta }}</li>
         </ul>
-
         <input type="text" v-model='fruta' @keydown.enter="add">
     </div>
 	</div>
