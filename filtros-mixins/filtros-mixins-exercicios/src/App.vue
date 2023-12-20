@@ -4,7 +4,7 @@
 
 		<hr>
 
-		<p>{{ cpf | cpfFilter }}</p>
+		<p>{{ cpf | cpfFilter | inverter }}</p>
 	</div>
 </template>
 
