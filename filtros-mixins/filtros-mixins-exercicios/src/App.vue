@@ -5,6 +5,8 @@
 		<hr>
 
 		<p>{{ cpf | cpfFilter | inverter }}</p>
+
+		<input type="text" :value='cpf | cpfFilter | inverter' >
 	</div>
 </template>
 
@@ -35,6 +37,10 @@ export default {
 	text-align: center;
 	color: #2c3e50;
 	margin-top: 60px;
+	font-size: 2.5rem;
+}
+
+input{
 	font-size: 2.5rem;
 }
 </style>
