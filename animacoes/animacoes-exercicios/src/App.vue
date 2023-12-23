@@ -35,26 +35,28 @@ export default {
 }
 
 .fade-enter{
-
+	opacity: 0;
 }
 
 .fade-enter-active{
-
+	transition: opacity 2s;
 }
 
 .fade-to{
+	opacity: 1;
 
 }
 
 .fade-leave{
+	opacity: 1;
 
 }
 
 .fade-leave-to{
-
+	transition: opacity 2s;
 }
 
 .fade-leave-to{
-
+	opacity: 0;
 }
 </style>
