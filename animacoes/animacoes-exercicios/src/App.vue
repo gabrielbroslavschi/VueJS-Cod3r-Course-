@@ -50,11 +50,37 @@
     >
       <div v-if="exibir2" class="caixa"></div>
     </transition>
+
+    <hr />
+
+    <div class="mb-4">
+      <b-button
+        variant="primary"
+        class="mr-2"
+        @click="componenteSelecionado = 'AlertaInfoVue'"
+        >Info</b-button
+      >
+      <b-button
+        variant="secondary"
+        @click="componenteSelecionado = 'AlertaAdvertenceVue'"
+        >Advertencia</b-button
+      >
+    </div>
+    <transition name="fade" mode="out-in">
+      <component :is="componenteSelecionado"></component>
+    </transition>
   </div>
 </template>
 
 <script>
+import AlertaInfoVue from "./AlertaInfo.vue";
+import AlertaAdvertenceVue from "./AletaAdvertence.vue";
+
 export default {
+  components: {
+    AlertaAdvertenceVue,
+    AlertaInfoVue,
+  },
   data() {
     return {
       msg: "Uma mensagem de informação para o usuario",
@@ -62,6 +88,7 @@ export default {
       exibir2: true,
       tipoAnimacao: "fade",
       larguraBase: 0,
+      componenteSelecionado: "AlertaInfoVue",
     };
   },
   methods: {
