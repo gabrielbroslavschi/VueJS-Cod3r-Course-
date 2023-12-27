@@ -36,8 +36,9 @@
 
     <hr />
 
-    <button @click="exibir2 = !exibir2">Mostrar</button>
+    <button @click="exibir2 = !exibir2">Alternar</button>
     <transition
+      :css="false"
       @before-enter="beforeEnter"
       @enter="enter"
       @after-enter="afterEnter"
@@ -60,37 +61,43 @@ export default {
       exibir: false,
       exibir2: true,
       tipoAnimacao: "fade",
+      larguraBase: 0,
     };
   },
-  methods:{
+  methods: {
+    animar(el, done, negativo) {
+      let rodada = 1;
+      const temporizador = setInterval(() => {
+        const novaLargura =
+          this.larguraBase + (negativo ? -rodada * 10 : rodada * 10);
+        el.style.width = `${novaLargura}px`;
+        rodada++;
+        if (rodada > 30) {
+          clearInterval(temporizador);
+          done();
+        }
+      }, 20);
+    },
     /* eslint-disable */
-    beforeEnter(el){
-      console.log("beforeEnter")
+    beforeEnter(el) {
+      this.larguraBase = 0;
+      el.style.width = `${larguraBase}px`;
     },
-    enter(el, done){
-      console.log("enter")
-      done()
+    enter(el, done) {
+      this.animar(el, done, false);
     },
-    afterEnter(el){
-      console.log("afterEnter")
+    // afterEnter(el) {},
+    // enterCancelled(el) {},
+    beforeLeave(el) {
+      this.larguraBase = 300;
+      el.style.width = `${larguraBase}px`;
     },
-    enterCancelled(el){
-      console.log("enterCancelled")
+    leave(el, done) {
+      this.animar(el, done, true);
     },
-    beforeLeave(el){
-      console.log("beforeLeave")
-    },
-    leave(el, done){
-      console.log("leave")
-      done()
-    },
-    afterLeave(el){
-      console.log("afterLeave")
-    },
-    leaveCancelled(){
-      console.log("leaveCancelled")
-    }
-  }
+    // afterLeave(el) {},
+    // leaveCancelled() {},
+  },
 };
 </script>
 
