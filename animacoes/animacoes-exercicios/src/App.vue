@@ -70,11 +70,15 @@
       <component :is="componenteSelecionado"></component>
     </transition>
 
-    <hr>
-  <b-button @click="adicionarAluno" class="mb-4" >Adicionar ALuno</b-button>
-    <b-list-group v-for="(aluno, i) in alunos" :key="aluno">
-      <b-list-group-item @click="removerAluno(i)">{{ aluno }}</b-list-group-item>
-    </b-list-group>
+    <hr />
+    <b-button @click="adicionarAluno" class="mb-4">Adicionar ALuno</b-button>
+    <transition-group name="slide" mode="out-in">
+      <b-list-group v-for="(aluno, i) in alunos" :key="aluno">
+        <b-list-group-item @click="removerAluno(i)">{{
+          aluno
+        }}</b-list-group-item>
+      </b-list-group>
+    </transition-group>
   </div>
 </template>
 
@@ -89,7 +93,7 @@ export default {
   },
   data() {
     return {
-      alunos: ['Roberto', "julio", 'Teresa', "Paulo"],
+      alunos: ["Roberto", "julio", "Teresa", "Paulo"],
       msg: "Uma mensagem de informação para o usuario",
       exibir: false,
       exibir2: true,
@@ -99,12 +103,12 @@ export default {
     };
   },
   methods: {
-    adicionarAluno(){
+    adicionarAluno() {
       const s = Math.random().toString(36).substring(2);
       this.alunos.push(s);
     },
-    removerAluno(indice){
-      this.alunos.splice(indice, 1)
+    removerAluno(indice) {
+      this.alunos.splice(indice, 1);
     },
     animar(el, done, negativo) {
       let rodada = 1;
@@ -210,10 +214,16 @@ export default {
 .slide-leave-active {
   animation: slide-out 2s ease;
   transition: opacity 2s;
+  position: absolute;
+  widows: 100%;
 }
 
 .slide-enter,
 .slide-leave-to {
   opacity: 0;
+}
+
+.slide-move{
+  transition: transform 1s;
 }
 </style>
