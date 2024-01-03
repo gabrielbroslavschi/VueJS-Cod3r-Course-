@@ -1,16 +1,15 @@
 <template>
     <nav class="menu">
-        <router-link to='/'>Inicio</router-link>
-        <router-link to='/usuario'>Usuario</router-link>
+        <ul>
+            <router-link to='/' tag='li' active-class="active" exact><a>Inicio</a></router-link>
+            <router-link to='/usuario' tag='li' active-class="active" exact><a>Usuario</a></router-link>
+        </ul>
     </nav>
 </template>
 
 <script>
-export default {
-    
-}
+export default {};
 </script>
 
 <style>
-
 </style>
