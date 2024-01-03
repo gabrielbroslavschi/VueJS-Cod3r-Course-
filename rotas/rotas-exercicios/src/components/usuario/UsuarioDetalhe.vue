@@ -8,8 +8,8 @@
 </template>
 
 <script>
-export default {
-    props: ['id'],
+export default{
+    props: ["id"]
     // data(){
     //     return{
     //         id: this.$route.params.id

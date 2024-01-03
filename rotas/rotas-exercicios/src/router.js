@@ -13,9 +13,9 @@ export default new Router({
   routes: [
     { path: "/", component: Inicio },
     { path: "/usuario", component: Usuario, props: true, children: [
-        {path: "", component: UsuarioLista},
-        {path: ":id", component: UsuarioDetalhe},
-        {path: ":id/editar", component: UsuarioEditar}
+        {path: "", component: UsuarioLista, props: true},
+        {path: ":id", component: UsuarioDetalhe, props: true},
+        {path: ":id/editar", component: UsuarioEditar, props: true}
     ] },
   ],
 });
