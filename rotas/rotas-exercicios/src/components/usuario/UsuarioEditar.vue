@@ -5,7 +5,7 @@
         <p><strong>Completo: </strong> {{ $route.query.completo ? "sim" : "não" }}</p>
         <p><strong>Lingua: </strong> {{ $route.query.lingua }}</p>
         <hr>
-        <button primario>Confirmar</button>
+        <button primario @click="confirmou = true">Confirmar</button>
         <div id="rodape">
             <h3>Curso Vue</h3>
         </div>
@@ -14,20 +14,36 @@
 
 <script>
 export default {
-    props: ['id'],
-    beforeRouteEnter(to, from, next){
-        // eslint-disable-next-line no-console
-        console.log("dentro do componente -> Usuário detalhe");
-        next(intanciaComponent => {
-            // eslint-disable-next-line no-console
-            console.log(intanciaComponent.id)
-        })
+  props: ["id"],
+  data() {
+    return {
+      confirmou: false,
+    };
+  },
+  beforeRouteLeave(to, from, next) {
+    if (this.confirmou) {
+      next();
+    } else {
+      if (confirm("tem certeza?")) {
+        next();
+      } else {
+        next(false);
+      }
     }
-}
+  },
+  beforeRouteEnter(to, from, next) {
+    // eslint-disable-next-line no-console
+    console.log("dentro do componente -> Usuário detalhe");
+    next((intanciaComponent) => {
+      // eslint-disable-next-line no-console
+      console.log(intanciaComponent.id);
+    });
+  },
+};
 </script>
 
 <style>
-    #rodape{
-        margin-top: 1000px;
-    }
+#rodape {
+  margin-top: 1000px;
+}
 </style>
