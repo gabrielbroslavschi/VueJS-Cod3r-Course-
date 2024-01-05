@@ -4,22 +4,23 @@
 		<!-- <Menu/> -->
 
 		<router-view name="menu"/>
-		<router-view/>
+		<transition mode="out-in" enter-active-class="animated rubberBand" leave-active-class="animated rollOut">
+			<router-view/>
+		</transition>
 	</div>
 </template>
 
 <script>
-
 export default {
-	// eslint-disable-next-line vue/no-unused-components
-	// components:{ Menu }
-}
+  // eslint-disable-next-line vue/no-unused-components
+  // components:{ Menu }
+};
 </script>
 
 <style>
-	#app {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 </style>
