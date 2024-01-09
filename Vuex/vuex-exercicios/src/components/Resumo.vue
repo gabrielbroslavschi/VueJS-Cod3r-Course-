@@ -1,6 +1,7 @@
 <template>
     <Painel titulo="Resumo" roxo>
         <div class="resumo">
+            <!-- <span>Total: <strong>{{ valorTotal | dinheiro }}</strong></span> -->
             <span>Total: <strong>{{ total | dinheiro }}</strong></span>
             <hr>
             <button>Finalizar!</button>
@@ -9,15 +10,22 @@
 </template>
 
 <script>
+
+import { mapGetters }  from 'vuex';
+
+
 export default {
-    computed: {
-        total() {
-            return this.$store.getters.valorTotal;
-        },
-        produtos(){
-            return this.$store.state.produtos;
-        }
-    }
+
+    // computed: mapGetters(['valorTotal'])
+    
+    computed: mapGetters({total: 'valorTotal'})
+    
+    // computed: {
+    //     total() {
+    //         return this.$store.getters.valorTotal;
+    //     },
+        
+    // }
 }
 </script>
 
