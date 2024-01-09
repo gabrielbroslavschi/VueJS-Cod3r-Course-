@@ -18,4 +18,10 @@ export default new Vuex.Store({
         .reduce((total, atual) => total + atual, 0);
     },
   },
+  mutations:{
+    //payLoad === produto
+    adicionarProduto(state, payLoad){
+        state.produtos.push(payLoad);
+    }
+  }
 });
